@@ -51,7 +51,7 @@ else if(isset($_POST['editar'])){
 	';
 }
 else if(isset($_POST['editsave'])){
-	
+
 	if(empty($_POST['titulo']) || empty($_POST['contenido']) ){
 		$mensaje = '<span class="error">Ocurrio un error, verifique los campos.</span>';
 	}
@@ -70,10 +70,10 @@ else if(isset($_POST['editsave'])){
 		$post->setImagen($idimagen[0]);
 		if($post->Update()){
 			$mensaje = '<span class="success">Post guardado correctamente!</span>';
-		}	
+		}
 		else{
 			$mensaje = '<span class="error">Ocurrio un error, intenta nuevamente. si el problema persiste contacte a un administrador.</span>';
-		}	
+		}
 	}
 	mostrarPosts($mensaje);
 }
@@ -81,56 +81,60 @@ else{
 	mostrarPosts($mensaje);
 }
 
+
 function mostrarPosts($mensaje){
 	echo '<h1>Publicaciones</h1>
 	<p>Aqui puede encontrar una lista de publicaciones</p>
 	<p>'.$mensaje.'</p>
-	<section id="lista">';
+	<section id="lista">
+	<table>
+  <tr>
+  	<th><i class="fa fa-pencil"></i><i class="fa fa-times"></i></th>
+    <th>ID</th>
+    <th>Imagen</th>
+    <th>Titulo</th>
+    <th>Contenido</th>
+    <th>Autor</th>
+    <th>Tags</th>
+    <th>Fecha</th>
+  </tr>';
 	$imagen = new Imagen();
-	$user = new Usuario();
 	$post = new Post();
-	$allposts = array_reverse($post->getAll());
-	$i = 0;
-	$max = sizeof($allposts);
-	if($allposts == false){
-	echo '<article>
-	<p style="text-align:center;">Aún no hay publicaciones creadas</p>
-	</article>';
+	$user = new Usuario();
+	$allposts = $post->getAll();
+	foreach ($allposts as $value) {
+	$imagen->setId($value['img']);
+	$urlimg = $imagen->getUrl();
+	$user->setId($value['autor']);
+		echo'<tr>
+			<td>
+				<ul>
+					<li>
+						<form method="post">
+						<input type="hidden" name="id" value="'.$value['id'].'">
+						<input name="editar" type="hidden">
+						<i class="fa fa-pencil" onclick="this.parentNode.submit();"></i>
+						</form>
+					</li>
+					<li>
+						<form method="post">
+						<input type="hidden" name="id" value="'.$value['id'].'">
+						<input name="eliminar" type="hidden">
+						<i class="fa fa-times" onclick="this.parentNode.submit();"></i>
+						</form>
+					</li>
+				</ul>
+			</td>
+    		<td>'.$value['id'].'</td>
+    		<td style="background-image: url('."'".$urlimg."'".');"></td>
+    		<td>'.$value['titulo'].'</td>
+    		<td>'.substr($value['contenido'],0,50).'...</td>
+    		<td>'.$user->getUser().'</td>
+    		<td>'.$value['tags'].'</td>
+    		<td>'.$value['fecha'].'</td>
+  		</tr>';
 	}
-	else{
-		while($i < $max){
-	$user->setId($allposts[$i]['autor']);
-	$username = $user->getUser();
-	$imagen->setId($allposts[$i]['img']);
-	$imagenurl = $imagen->getUrl();
-	echo '<article>
-			<h2>'.$allposts[$i]['titulo'].'</h2>
-			<img class="imgcenter" src="'.$imagenurl.'">
-			<h3>Contenido: </h3>
-			<p>'.$allposts[$i]['contenido'].'</p>
-			<h3>Autor: <span class="campo">'.$username.'</span></h3>
-			<h3>Tags: <span class="campo">'.$allposts[$i]['tags'].'</span></h3>
-			<h3>Fecha: <span class="campo">'.$allposts[$i]['fecha'].'</span></h3>
-			<ul>
-				<li>
-					<form method="post">
-					<input type="hidden" name="id" value="'.$allposts[$i]['id'].'">
-					<input name="editar" class="azul" value="Editar" type="submit">
-					</form>
-				</li>
-				<li>
-					<form method="post">
-					<input type="hidden" name="id" value="'.$allposts[$i]['id'].'">
-					<input name="eliminar" class="rojo" value="Eliminar" type="submit">
-					</form>
-				</li>
-			</ul>
-		</article>';
-	$i++;
-}
-	}
-	
-echo '</section>';
 
+echo '</table></section>';
 }
 ?>

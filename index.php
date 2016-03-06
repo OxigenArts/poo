@@ -4,7 +4,7 @@ require_once 'classes/enrutador.php';
 require_once 'classes/config.php';
 require_once 'classes/temas.php';
 if(isset($_REQUEST['route'])){
-	$route_get = $_REQUEST['route']; 
+	$route_get = $_REQUEST['route'];
 }
 else{
 	$route_get = "";

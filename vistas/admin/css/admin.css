@@ -17,7 +17,7 @@ body{
 .mid{
 	float:left;
 	width: 200px !important;
-	margin: 0 1% 1% 1% !important;
+	margin: 0 1% 1% 1%;
 }
 .mid input{
 	font-size: 15px !important;
@@ -367,6 +367,7 @@ input{
 #lista{
 	width: 100%;
 	overflow: auto;
+	display: block;
 }
 #lista article{
 	text-align: center;
@@ -482,7 +483,7 @@ input{
 	border-style: solid;
 	border-color: #aaa;
 	border-width: 1px;
-	
+
 }
 #lista table{
 	border-collapse: collapse;
@@ -539,7 +540,7 @@ position: relative;
 	top:0;
 	left:0;
 	bottom:0;
-	right: 0; 
+	right: 0;
 	width: 300px;
 	height: 340px;
 	margin: auto;
@@ -618,10 +619,9 @@ box-shadow: none;
     #body{
     	padding: 60px 10px 10px 10px;
     }
-
-    #menu{  
+    #menu{
     	visibility: hidden;
-    	opacity: 0;   	
+    	opacity: 0;
     	text-align: left;
     	width: 100%;
     }
@@ -639,13 +639,13 @@ box-shadow: none;
     }
     header ul{
     	display: none;
+
     }
-    
 }
 @media screen and (min-width: 780px){
- 	#menu{  
+ 	#menu{
     	visibility: visible;
-    	opacity: 1;   	
+    	opacity: 1;
     	text-align: left;
     	width: 250px;
     }
@@ -657,7 +657,7 @@ box-shadow: none;
     }
 }
 @media screen and (max-width: 780px){
-  
+
     .login{
     	width: 100%;
     	height: auto;
@@ -683,5 +683,5 @@ box-shadow: none;
 
     	background-color: #fff;
     }
-    
+
 }
