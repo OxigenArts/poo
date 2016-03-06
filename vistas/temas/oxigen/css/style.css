@@ -1,0 +1,242 @@
+/*---- FONT-FACE ----*/
+@font-face {
+font-family: 'font';
+font-weight: normal;
+font-weight: bold;
+src: url('../fonts/font.ttf');
+} 
+@font-face {
+font-family: 'font';
+font-weight: 300;
+src: url('../fonts/fontlight.ttf');
+} 
+/*---- GENERAL ----*/
+body{
+	margin:50px 0 0 0;
+	padding:0;
+	background-color:#ccc;
+	font-family: 'font', sans-serif;
+	font-weight: 300;
+	color:#222;
+	width: 100%;
+	height: 100%;
+}
+/*---- HEADER ----*/
+header{
+	font-size: 20px;
+	position:fixed;
+	top:0;
+	left:0;
+	width:100%;
+	height:50px;
+	background-color:#eee;
+	border-bottom-style:solid;
+	border-bottom-width:1px;
+	border-bottom-color:#ccc;
+	z-index: 99;
+}
+header ul{
+	margin:0 12px;
+	padding:0;
+}
+header li{
+	list-style: none;
+	margin: 15px 0;
+	padding: 0;
+	display: inline-block;
+	text-transform: uppercase;
+}
+header a:link,header a:visited{
+	color:#222;
+}
+header .active{
+	color:#09f;
+}
+/*---- LOGO ----*/
+#logo{
+	margin:0;
+	width:100%;
+	box-sizing:border-box;
+	display: block;
+	padding:10% 0;
+	background-color:#09f;
+}
+#logo img{
+	display: block;
+	width:70%;
+	max-width: 600px;
+	height:auto;
+	margin:auto;
+}
+/*--- TEXT ----*/
+#text{
+	color:#ccc;
+	width:100%;
+	background-color:#222;
+	box-sizing:border-box;
+	padding:30px 50px;
+}
+#text h1{
+	font-size: 50px;
+	margin:0 0 20px 0;
+	text-align: center;
+}
+#text p{
+	font-size: 20px;
+	margin:0;
+	text-align: center;
+	padding: 10px 0;
+}
+/*--- POSTS ----*/
+#posts{
+	width:100%;
+	box-sizing:border-box;
+	padding: 10px 10px 10px 2%;
+}
+#posts article{
+
+	display: block;
+	float: left;
+	width: 48%;
+	box-sizing:border-box;
+	padding: 20px;
+}
+#posts article h1{
+	margin:0;
+	box-sizing:border-box;
+	padding: 10px;
+	background-color:#222;
+	color:#ccc;
+	font-size: 30px;
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+}
+#posts article a:visited,#posts article a:link{
+	color:#ccc;
+	text-decoration: none;
+}
+#posts article p{
+	margin:0;
+	box-sizing:border-box;
+	padding: 15px 10px;
+	background-color:#fff;
+	font-size: 20px;
+	border-bottom-left-radius: 4px;
+	border-bottom-right-radius: 4px;
+	border-style: solid;
+	border-width: 1px;
+	border-color:#aaa;
+	border-top-width: 0;
+}
+#posts article img{
+	display: block;
+	width: 100%;
+	height: auto;
+}
+/*---- FOOTER ----*/
+footer{
+	display: inline-block;
+	color:#ccc;
+	width:100%;
+	background-color:#222;
+	box-sizing:border-box;
+	padding:30px 0px;
+}
+footer ul{
+	padding:0;
+	margin:0;
+	text-align: center
+}
+footer li{
+	list-style: none;
+	display: inline-block;
+	margin:0px 10px;
+}
+footer li a:link,footer li a:visited{
+	font-style: italic;
+	text-decoration: none;
+	color:#ccc;
+	border-bottom-style: dotted;
+	border-bottom-width: 1px;
+	border-bottom-color: #aaa
+}
+footer li a:link:hover,footer li a:visited:hover{
+	text-decoration: none;
+	color:#aaa;
+	border-bottom-style: dotted;
+	border-bottom-width: 1px;
+	border-bottom-color: #aaa
+}
+/*---- PAGE ----*/
+#page{
+	background-color: #fff;
+}
+#page img{
+	width:100%;
+	height: auto;
+}
+#page #image{
+	background-position: center;
+	background-size:cover;
+}
+#page h1{
+	margin:0;
+	box-sizing:border-box;
+	padding: 10px;
+	background-color:#09f;
+	color:#fff;
+	font-size: 30px;
+	border-bottom-left-radius: 4px;
+	border-bottom-right-radius: 4px;
+}
+#page article{
+	box-sizing:border-box;
+	padding: 15px 10px;
+	font-size: 20px;
+
+}
+/*---- RESPONSIVE ----*/
+/*---- 800px ----*/
+@media screen and (max-width: 800px) {
+	#posts article{
+		width:100%;
+	}
+}
+/*---- 700px ----*/
+@media screen and (max-width:600px) {
+	/*---- TEXT ----*/
+	#text{
+		padding:30px 10px;
+	}
+	#text h1{
+		font-size:30px;
+	}
+	/*---- POSTS ----*/
+	#posts{
+		padding:0px;
+	}
+	#posts article{
+		float: none;
+		display: block;
+		padding:20px 2px;
+	}
+	#posts article h1{
+		font-size: 20px;
+	}
+	/*---- FOOTER ----*/
+	footer{
+		padding:10px 0;
+	}
+	footer li{
+		display: block;
+		margin:10px 0;
+	}
+	/*---- PAGE ----*/
+	#page h1{
+		font-size: 20px;
+	}
+	#page article p{
+		font-size: 18px;
+		
+	}
+}
