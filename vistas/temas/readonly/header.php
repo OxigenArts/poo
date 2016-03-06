@@ -1,12 +1,33 @@
 <?php
+require_once 'classes/config.php';
 require_once 'classes/usuarios.php';
 require_once 'classes/imagenes.php';
 require_once 'classes/sesiones.php';
 require_once 'classes/temas.php';
 $sesion = new Sesion();
+$conf = new Config();
 $tema = new Tema();
+if(isset($_REQUEST['login'])){
+	if(!empty($_REQUEST['pass']) || !empty($_REQUEST['user'])){
+		$sesion->Cerrar();
+		$sesion->setUser($_REQUEST['user']);
+		$sesion->setPass($_REQUEST['pass']);
+		if($sesion->Conectar() != true){
+			$mensaje = '<span class="error">Usuario o contraseña incorrecta.</span>';
+		}
+		else{
+			if($sesion->Verificar() == true){
+				header("location: ".$conf->getCfg("url")."admin/");
+			}
+		}
 
+	}
+	else{//si no relleno todos los campos ↓
+		$mensaje = '<span class="error">Todos los campos son obligatorios.</span>';
+	}
+}
 ?>
+
 <section id="header" class="skel-layers-fixed">
 	<header>
 		<?php
@@ -28,7 +49,25 @@ $tema = new Tema();
 				<p>'.$tipo.'<br />'.$user->getUser().'</p>';
 		}
 		else{
-			echo 'form aqui';
+			echo '<h4>Ingresar:</h4>
+			<form action="" method="post">
+			<div class="row uniform">
+			<div class="12u"><input type="text" name="user" placeholder="Usuario" /></div>
+			</div>
+			<div class="row uniform">
+			<div class="12u"><input type="password" name="pass" placeholder="Contraseña" /></div>
+			</div>
+			<div class="row uniform">
+			<div class="12u"><input class="fit" type="submit" name="login" Value="Iniciar Sesión"></div>
+			</div>
+			</form>
+			<p>
+			<a href="#">Olvidaste tu contraseña?</a>
+			</br>';
+			if($conf->getCfg("registro") == "1"){
+			echo '<a href="'.$conf->getCfg("url").'reg">¿No tienes una cuenta? Registrate!</a></p>';
+			}
+					;
 		}
 
 		?>

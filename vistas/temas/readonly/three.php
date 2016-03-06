@@ -27,6 +27,7 @@ $tema->setId($conf->getCfg("tema"));
 				<div class="inner">
 					<h4>'.$value['titulo'].'</h4>
 					<p>'.substr($value['contenido'], 0,120).'...</p>
+					<a href="#" class="button alt">Ver mas</a>
 				</div>
 			</article>';
 			}

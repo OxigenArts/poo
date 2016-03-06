@@ -112,7 +112,7 @@
 
 			.row + .row.uniform > * {
 				/* padding: (gutters.vertical) 0 0 (gutters.vertical) */
-				padding: 2em 0 0 2em;
+				padding: 1em 0 0 2em;
 			}
 
 		/* Flush */
