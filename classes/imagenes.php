@@ -84,7 +84,7 @@ class Imagen extends Database {
 	public function Delete(){
 		if($this->id != null){
 			if(parent::Delete($this->table,"id",$this->id)) {
-				unlink($this->getUrl());
+				unlink($this->ruta);
 				return true;
 			} else {
 				return false;
