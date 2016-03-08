@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-03-2016 a las 20:56:11
+-- Tiempo de generación: 08-03-2016 a las 23:03:48
 -- Versión del servidor: 5.6.20
 -- Versión de PHP: 5.5.15
 
@@ -40,13 +40,13 @@ CREATE TABLE IF NOT EXISTS `cfgtemas` (
 INSERT INTO `cfgtemas` (`id`, `tema_id`, `cfg_name`, `cfg_value`) VALUES
 (1, '0', 'page_about', 'Sobre nosotros'),
 (2, '0', 'about_title', 'Sobre nosotros...'),
-(3, '0', 'about_subtitle', 'Just an incredibly simple responsive site\r\ntemplate freebie by HTML5 UP.'),
-(4, '0', 'about_content', 'Faucibus sed lobortis aliquam lorem blandit. Lorem eu nunc metus col. Commodo id in arcu ante lorem ipsum sed accumsan erarfyrtytryt prae'),
+(3, '0', 'about_subtitle', 'Texto por defecto'),
+(4, '0', 'about_content', 'Texto por defecto'),
 (5, '0', 'news_title', 'Noticias'),
-(6, '0', 'news_content', 'Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer non. Adipiscing cubilia elementum i'),
+(6, '0', 'news_content', 'Texto por defecto'),
 (7, '0', 'news_maxposts', '3'),
 (8, '0', 'contact_title', 'Contacto'),
-(9, '0', 'contact_content', 'Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer non. Adipiscing cubilia elementum i'),
+(9, '0', 'contact_content', 'Texto por defecto'),
 (10, '0', 'contact_email', 'asdasd@as.com'),
 (11, '0', 'page_news', 'Noticias'),
 (12, '0', 'page_contact', 'Contacto');
@@ -69,9 +69,9 @@ CREATE TABLE IF NOT EXISTS `config` (
 
 INSERT INTO `config` (`id`, `cfg_name`, `cfg_value`) VALUES
 (1, 'titulo', 'Oxigen'),
-(2, 'descripcion', 'Diseño Gráfico'),
+(2, 'descripcion', 'Soy una descripcion, cambiame :D'),
 (3, 'nombre', 'Oxigen'),
-(4, 'logo', '20'),
+(4, 'logo', '42'),
 (5, 'tema', '0'),
 (6, 'registro', '1'),
 (7, 'url', 'http://localhost/poo/');
@@ -85,16 +85,15 @@ INSERT INTO `config` (`id`, `cfg_name`, `cfg_value`) VALUES
 CREATE TABLE IF NOT EXISTS `imagenes` (
 `id` int(10) unsigned NOT NULL,
   `url` varchar(512) DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=32 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=43 ;
 
 --
 -- Volcado de datos para la tabla `imagenes`
 --
 
 INSERT INTO `imagenes` (`id`, `url`) VALUES
-(2, 'contenido/imagenes/7dfca4ccc7d7469197fa60558dfb45920300f2ad.jpg'),
-(20, 'contenido/imagenes/a4370067dff1e286e853ce37af19136514d9a792.png'),
-(31, 'contenido/imagenes/d6a993001b33310117890c49b1a639b711843d07.jpg');
+(39, 'contenido/imagenes/40e964ed1d3fd0f685a1d19e5f80c7894423cb1c.png'),
+(42, 'contenido/imagenes/350daa4023e2d4e5d11fcd20952bd7729253ec18.png');
 
 -- --------------------------------------------------------
 
@@ -106,7 +105,14 @@ CREATE TABLE IF NOT EXISTS `paginas` (
 `id` int(10) unsigned NOT NULL,
   `titulo` varchar(128) DEFAULT NULL,
   `contenido` text
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- Volcado de datos para la tabla `paginas`
+--
+
+INSERT INTO `paginas` (`id`, `titulo`, `contenido`) VALUES
+(1, 'P&aacute;gina de muestra', 'Esta es una p&aacute;gina de muestra. puede crear y modificar paginas en el dashboard en la seccion de p&aacute;ginas.');
 
 -- --------------------------------------------------------
 
@@ -122,14 +128,14 @@ CREATE TABLE IF NOT EXISTS `posts` (
   `fecha` date DEFAULT NULL,
   `tags` varchar(256) DEFAULT NULL,
   `img` int(11) DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
 
 --
 -- Volcado de datos para la tabla `posts`
 --
 
 INSERT INTO `posts` (`id`, `titulo`, `contenido`, `autor`, `fecha`, `tags`, `img`) VALUES
-(8, 'Ar3qrwq3er', 's&lt;fagwe4tg alksdj aslkdj a8sud aoisdj &ntilde;alksd ao8sd s&lt;fagwe4tg alksdj aslkdj a8sud aoisdj &ntilde;alksd ao8sd s&lt;fagwe4tg alksdj aslkdj a8sud aoisdj &ntilde;alksd ao8sd s&lt;fagwe4tg alksdj aslkdj a8sud aoisdj &ntilde;alksd ao8sd s&lt;fagwe4tg alksdj aslkdj a8sud aoisdj &ntilde;alksd ao8sd s&lt;fagwe4tg alksdj aslkdj a8sud aoisdj &ntilde;alksd ao8sd s&lt;fagwe4tg alksdj aslkdj a8sud aoisdj &ntilde;alksd ao8sd s&lt;fagwe4tg alksdj aslkdj a8sud aoisdj &ntilde;alksd ao8sd s&lt;fagwe4tg alksdj aslkdj a8sud aoisdj &ntilde;alksd ao8sd s&lt;fagwe4tg alksdj aslkdj a8sud aoisdj &ntilde;alksd ao8sd s&lt;fagwe4tg alksdj aslkdj a8sud aoisdj &ntilde;alksd ao8sd s&lt;fagwe4tg alksdj aslkdj a8sud aoisdj &ntilde;alksd ao8sd s&lt;fagwe4tg alksdj aslkdj a8sud aoisdj &ntilde;alksd ao8sd s&lt;fagwe4tg alksdj aslkdj a8sud aoisdj &ntilde;alksd ao8sd s&lt;fagwe4tg alksdj aslkdj a8sud aoisdj &ntilde;alksd ao8sd s&lt;fagwe4tg alksdj aslkdj a8sud aoisdj &ntilde;alksd ao8sd s&lt;fagwe4tg alksdj aslkdj a8sud aoisdj &ntilde;alksd ao8sd s&lt;fagwe4tg alksdj aslkdj a8sud aoisdj &ntilde;alksd ao8sd s&lt;fagwe4tg alksdj aslkdj a8sud aoisdj &ntilde;alksd ao8sd s&lt;fagwe4tg alksdj aslkdj a8sud aoisdj &ntilde;alksd ao8sd s&lt;fagwe4tg alksdj aslkdj a8sud aoisdj &ntilde;alksd ao8sd s&lt;fagwe4tg alksdj aslkdj a8sud aoisdj &ntilde;alksd ao8sd s&lt;fagwe4tg alksdj aslkdj a8sud aoisdj &ntilde;alksd ao8sd ', 1, '2016-03-06', '', 31);
+(9, 'Bienvenido!', 'Este es un post de prueba. puede crear mas ingresando al dashboard en la seccion de &quot;Posts&quot;.', 1, '2016-03-08', '', 32);
 
 -- --------------------------------------------------------
 
@@ -182,8 +188,7 @@ CREATE TABLE IF NOT EXISTS `temas` (
 --
 
 INSERT INTO `temas` (`id`, `titulo`, `descripcion`, `autor`, `fecha`, `carpeta`) VALUES
-(0, 'Readonly', NULL, '', '2016-02-26', 'readonly'),
-(1, 'Oxigen', 'Tema de prueba para el sistema', 'Losotro pa''', '2016-03-30', 'oxigen');
+(0, 'Readonly', 'Tema por defecto del Sistema', 'Oxigen', '2016-02-26', 'readonly');
 
 -- --------------------------------------------------------
 
@@ -209,7 +214,7 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `usuario`, `pass`, `email`, `img`, `nombre`, `apellido`, `privilegio`, `activo`, `bloqueado`) VALUES
-(1, 'admin', 'admin', 'wacho@wacho.wacho', 2, 'Tu', 'Mama', 1, 0, 0);
+(1, 'admin', 'admin', 'admin@email.com', 39, 'Usuario', 'Administrador', 1, 0, 0);
 
 --
 -- Índices para tablas volcadas
@@ -281,17 +286,17 @@ MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 -- AUTO_INCREMENT de la tabla `imagenes`
 --
 ALTER TABLE `imagenes`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=32;
+MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=43;
 --
 -- AUTO_INCREMENT de la tabla `paginas`
 --
 ALTER TABLE `paginas`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
+MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT de la tabla `posts`
 --
 ALTER TABLE `posts`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
+MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT de la tabla `secadm`
 --

@@ -4,7 +4,7 @@
 * Version: 0.1A
 * Dependencias:
 * --Database.
-* 
+*
 * Manejador para configuraciones generales del sitio.
 */
 class Config extends Database {
@@ -19,7 +19,7 @@ class Config extends Database {
 		else{
 			return false;
 		}
-		
+
 	}
 	public function getTable(){
 		return $this->table;
@@ -32,11 +32,8 @@ class Config extends Database {
 			if(!parent::Update($this->table,array("cfg_value" => $value),"cfg_name",$name)){
 				return false;
 			}
-			else{
-				return true;
-			}
-			
 		}
+		return true;
 	}
 	public function newCfg($cfgs){
 		return parent::Insert($this->table,$cfgs);
