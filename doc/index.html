@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Documentacion</title>
+    <link rel="stylesheet" href="styles/monokai-sublime.css">
+    <link href='https://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic' rel='stylesheet' type='text/css'>
+    <script src="highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+    p,h1,h2,span,li{
+      font-family: 'Source Sans Pro', sans-serif;
+    }
+    body{
+      margin:10px 50px;
+      background-color: #eee;
+    }
+    code,pre{
+      font-family: 'Inconsolata' !important;
+      font-size: 15px;
+      border-radius: 4px;
+    }
+    code b{
+      font-weight: bold;
+    }
+    span.note{
+      color:#444;
+      font-style: italic;
+    }
+    </style>
+  </head>
+  <body>
+    <h1>1. Introducción general.</h1>
+    <p>
+      <span class="note"><b>NOTA</b>: Es necesario resaltar que el sistema esta aún en etapa de desarrollo y todo puede mejorarse. si tiene dudas o sugerencias puede contactarse con los desarrolladores en:...;</span>
+    </p>
+    <p>
+      El sistema está desarrollado con PHP orientado a objetos y Mysql como gestor de bases de datos. Está compuesto por una serie de módulos principales que se complementan y permiten la utilización de otros módulos secundarios. En caso de no contar con un módulo en específico, este puede ser reemplazado por otro de funcionalidad similar, solo si es compatible, haciendo el sistema más flexible para los programadores.
+    </p>
+    <p>
+      También cuenta con una serie de herramientas que harán más fácil la producción de aplicaciones web dentro de este, actuando también como framework y teniendo la posibilidad de poder acceder a la base de datos de manera similar a un gestor de contenidos u otro framework similar, pero con la posibilidad de crear extensiones dinámicamente. De esta manera, se garantiza la flexibilidad en el código siempre y cuando se utilice las clases que el sistema aporta o creando nuevas siguiendo el patrón de desarrollo del mismo. La estructura de las clases está basada en un patrón de código que se puede seguir para facilitar la creación de nuevos módulos y así ampliar el campo de posibilidades a la hora de realizar código.
+    </p>
+    <p>
+      El sistema cuenta con dos archivos principales que reciben prácticamente toda la información que entra y sale en el sistema. Uno de los archivos es el “<b>index.php</b>” ubicado en la carpeta raíz de la instalación del sistema, todas las peticiones (salvo algunas excepciones) son redirigidas directamente a este, mediante otro archivo que se encarga de esta redirección (“<b>.htaccess</b>”), que las captura e interpreta de distinta manera según la configuración deseada. En el archivo se incluyen las dos clases principales: <b>Rutas</b> y <b>Database</b>.
+    </p>
+    <p>
+      La clase <b>Rutas</b> recibe y procesa los datos de la URL, y la procesa para devolver al usuario la página, también llamada “vista”, indicada.
+Las vistas mostradas pueden obtener información anteriormente almacenada en una base de datos mediante la clase <b>Database</b>. Esta incluye varios métodos para enviar o recibir información alojada en el servidor, como por ejemplo, Información de los usuarios, o de una sección de noticias.
+    </p>
+    <p>
+      La clase <b>Database</b> contiene una serie de funciones útiles para el funcionamiento del sistema y para el desarrollo íntegro de un nuevo módulo, utilizándose para agilizar el desarrollo a la hora de comunicarse con la base de datos.
+    </p>
+    <p>
+      Ya teniendo estas dos clases de uso general, las demás clases pueden funcionar correctamente e integrarse de manera que puedan funcionar en conjunto.
+    </p>
+    <h1>2. Instalando el sistema. (manualmente)</h1>
+    <p>
+      Para instalar el sistema deberemos disponer básicamente de un servidor con soporte de PHP y Mysql.
+    </p>
+    <p>
+      Primero debemos subir los archivos del sistema al servidor y modificar el archivo “<b>.htaccess</b>”.
+    </p>
+    <pre><code class="html">RewriteEngine on
+RewriteBase <b>/directorio_instalacion</b>
+RewriteCond %{REQUEST_URI} !<b>/directorio_instalacion</b>/contenido/
+RewriteCond %{REQUEST_FILENAME} !.*jpg$|.*gif$|.*png$|.*css$|.*js$|.*svg$|.*ttf$|.*woff$|.*woff2$|.*eot$
+RewriteRule ^(.*)$ index.php?route=$1 [QSA,NC,L] </code></pre>
+    <p>
+      Donde “<b>/directorio_instalacion</b>” es el directorio base del sistema.
+    </p>
+    <p>
+      Luego será necesario crear una nueva base de datos. La información de conexión de la misma debe ser actualizada en el archivo “<b>database.php</b>” ubicado en la carpeta “<b>config</b>” en el directorio de instalación, o “<b>/config/database.php</b>”.
+    </p>
+    <pre><code class="php">return array(
+    "host"      => "<b>host_mysql</b>",
+    "user"      => "<b>usuario_db</b>",
+    "pass"      => "<b>pass_db</b>",
+    "database"  => "<b>nombre_db</b>",
+);
+</code></pre>
+    <p>
+      Donde “<b>host_mysql</b>” es el nombre del servidor de la base datos. “<b>usuario_db</b>”, el nombre de usuario, “<b>pass_db</b>” la contraseña y “<b>nombre_db</b>” el nombre de la base de datos. Tambien deberá importarse a la base de datos el archivo "<b>mysql_db.sql</b>", ubicado en el directrio base del sistema, que contiene las configuraciones básicas de los módulos incluidos.
+    </p>
+    <p>
+      Despues de realizado todo el procedimiento el sistema debería ser accesible desde el navegador web ingresando la direccion del servidor donde fue instalado.
+    </p>
+    <p>
+      <span class="note"><b>NOTA</b>: Tambien debería poder ser posible ingresar al panel de administrador en la direccion de logueo default "<b>/login</b>" con los datos de sesion por defecto incluidos en la base de datos.</br>
+      <b>Usuario: admin</b></br>
+      <b>Contraseña: admin</b></span>
+    </p>
+    <h1>3. Manual de uso básico.</h1>
+    <p>
+      En este simple manual se pretende explicar el funcionamiento basico del sistema, sus módulos y configuraciones generales para cualquier usuario con o sin conocimientos en programación. Dividido en # secciones para facilitar su comprensión se intentara explicar los conceptos basicos que cualquier usuario debe tener para utilizar correctamente el sistema.
+    </p>
+    <h2>a. Conceptos basicos.</h2>
+    <p>Los siguientes conceptos serán utilizados en el manual y se daran por entendios.</p>
+    <p>
+      <ul>
+        <li>Administrador: Usuario que tiene control total o parcial de la configuracion general del sistema y sus usuarios.</li>
+        <li>Módulo: Añadido o extension del sistema. Generalmente incluye nuevas funcionalidades para utilizar por los programadores o los usuarios.</li>
+        <li>Post: Publicacion de contenido generalmente realizada por administradores del sitio para ser mostrada a los usuarios.</li>
+        <li>Tema: Plantilla que define el estilo en que se muestra la pagina principal que ven los usuarios. Esto incluye colores, textos, entre otras cosas.</li>
+      </ul>
+    </p>
+
+
+
+
+  </body>
+    <script src="jquery.js"></script>
+  <script>
+  $(document).ready(function() {
+  $('pre code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+});
+  </script>
+
+</html>
