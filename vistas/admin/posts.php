@@ -38,8 +38,8 @@ else if(isset($_POST['editar'])){
 	<h2><span class="red">*</span> Contenido de la publicacion:</h2>
 	<textarea required name="contenido">'.$post->getContenido().'</textarea>
 	<h2> Imagen destacada:</h2>
-	<img class="imgcenter" src="'.$imagen->getUrl().'">
-	<input name="imagen" type="file">
+	<label for="imagen"><img class="imgcenter" src="'.$imagen->getUrl().'"></label>
+	<input id="imagen" name="imagen" type="file">
 	<h2> Tags: (separados por comas)</h2>
 	<input value="'.$post->getTags().'" name="tags" type="text">
 	<input value="'.$post->getId().'" name="id" type="hidden">
