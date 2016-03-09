@@ -83,6 +83,10 @@ RewriteRule ^(.*)$ index.php?route=$1 [QSA,NC,L] </code></pre>
       Donde “<b>host_mysql</b>” es el nombre del servidor de la base datos. “<b>usuario_db</b>”, el nombre de usuario, “<b>pass_db</b>” la contraseña y “<b>nombre_db</b>” el nombre de la base de datos. Tambien deberá importarse a la base de datos el archivo "<b>mysql_db.sql</b>", ubicado en el directrio base del sistema, que contiene las configuraciones básicas de los módulos incluidos.
     </p>
     <p>
+      Una vez importada la base de datos es importante modificar el campo "<b>url</b>" en la tabla "<b>config</b>" con la dirección del sitio usando algun software como PhpMyAdmin.
+    </p>
+    <img src="imgs/img00.png" alt="PhpMyAdmin" />
+    <p>
       Despues de realizado todo el procedimiento el sistema debería ser accesible desde el navegador web ingresando la direccion del servidor donde fue instalado.
     </p>
     <p>
