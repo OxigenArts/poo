@@ -104,7 +104,7 @@ RewriteRule ^(.*)$ index.php?route=$1 [QSA,NC,L] </code></pre>
       <ul>
         <li><b>Administrador</b>: Usuario que tiene control total o parcial de la configuracion general del sistema y sus usuarios.</li>
         <li><b>Módulo</b>: Añadido o extension del sistema. Generalmente incluye nuevas funciones para ser utilizadas por los programadores o usuarios.</li>
-        <li><b>Post</b>: Publicacion de contenido generalmente realizada por administradores del sitio para ser mostrada a los usuarios.</li>
+        <li><b>Post</b>: Publicación de contenido generalmente realizada por administradores del sitio para ser mostrada a los usuarios.</li>
         <li><b>Tema</b>: Plantilla que define el estilo en que se muestra la pagina principal que ven los usuarios. Esto incluye colores, textos, entre otras cosas.</li>
         <li>Panel de Aministración o "<b>Dashboard</b>": es el sitio en donde los administradores pueden modificar la configuracion general del sitio, gestionar sus usarios, publicaciones y temas, entre otras cosas.</li>
       </ul>
@@ -154,7 +154,7 @@ RewriteRule ^(.*)$ index.php?route=$1 [QSA,NC,L] </code></pre>
         <li>El campo "<b>Contenido</b>" (2) corresponde a el cuerpo de dicha publicación.</li>
         <li>El boton señalado con el numero "<b>3</b>", sirve para seleccionar una imagen destacada en la publicación. Esta imagen es siempre necesaria.</li>
         <li>El campo "<b>Tags</b>" (4) debe contener palabras clave que describan de manera muy simple el contenido del post.</li>
-        <li>Y finalmente, el botón "<b>Guardar</b>" (5) sirve para finalizar la publicacion y ser mostrada a los usuarios.</li>
+        <li>Y finalmente, el botón "<b>Guardar</b>" (5) sirve para finalizar la publicación y ser mostrada a los usuarios.</li>
       </ul>
     </p>
     <h2>e. Modificar y elminiar posts.</h2>
@@ -170,7 +170,16 @@ RewriteRule ^(.*)$ index.php?route=$1 [QSA,NC,L] </code></pre>
       ... se muestra una tabla con los datos de las publicaciones en el sitio.
     </p>
     <p>
-      Para modificar una de las publicaciones solo hay que presionar el boton <img src="imgs/img10.png" alt="Editar"/> correspondiente a la publicacion que quiera modificar.
+      Para eliminar una publicación debe presionar el boton <img src="imgs/img11.png" alt="Editar"/> correspondiente a la publicación que quiera eliminar.
+      <span class="nota">NOTA: Tenga en cuenta que una vez eliminado NO podra recuperar la informacion de esa publicación</span>
+    </p>
+    <p>
+      Para modificar una de las publicaciones hay que presionar el boton <img src="imgs/img10.png" alt="Eliminar"/> correspondiente a la publicación que quiera modificar y sera dirigido a la pagina de edicion de posts.
+    </p>
+    <img src="imgs/img12.png" alt="Edicion de posts"/>
+    <p>
+      El proceso para editar la publicación es practicamente el mismo que para <a href="#"></a>agregar un nuevo post</a>. Simplemente se deben <b>completar los campos</b> con los datos deseados y presionar el <b>botón guardar</b>.
+      <span class="nota">NOTA: Una vez modificada la publicación NO sera posible revertir los cambios realizados.</span>
     </p>
   </body>
     <script src="jquery.js"></script>
@@ -181,5 +190,4 @@ RewriteRule ^(.*)$ index.php?route=$1 [QSA,NC,L] </code></pre>
   });
 });
   </script>
-
 </html>
