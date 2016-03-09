@@ -505,6 +505,7 @@ input{
 	color:#fff;
 	background: #526d79;
 	background-size: cover;
+	background-position:center;
 }
 #lista table ul{
 	padding:0;
