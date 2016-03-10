@@ -15,7 +15,7 @@ class Usuario extends Database {
 	public function __construct() {
 		$this->table = "usuarios";
 		if(parent::Create($this->table,
-		"id INT UNSIGNED AUTO_INCREMENT,usuario VARCHAR(14),pass VARCHAR(40),email VARCHAR(128),img INT,nombre VARCHAR(64),apellido VARCHAR(64),privilegio INT,PRIMARY KEY(id)")){
+		"id INT UNSIGNED AUTO_INCREMENT,usuario VARCHAR(14),pass VARCHAR(40),email VARCHAR(128),img INT,nombre VARCHAR(64),apellido VARCHAR(64),privilegio INT,PRIMARY KEY(id),UNIQUE KEY `usuario` (`usuario`)")){
 			return true;
 		}
 		else{
