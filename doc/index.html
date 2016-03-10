@@ -28,6 +28,14 @@
       color:#444;
       font-style: italic;
     }
+    img{
+      padding:5px;
+      border:1px solid #acb0b5;
+    }
+    p img{
+      padding:0;
+      border: 0;
+    }
     </style>
   </head>
   <body>
@@ -98,27 +106,32 @@ RewriteRule ^(.*)$ index.php?route=$1 [QSA,NC,L] </code></pre>
     <p>
       En este simple manual se pretende explicar el funcionamiento basico del sistema, sus módulos y configuraciones generales para cualquier usuario con o sin conocimientos en programación. Dividido en # ←(reemplazar por numero de secciones) secciones para facilitar su comprensión se intentara explicar los conceptos basicos que cualquier usuario debe tener para utilizar correctamente el sistema.
     </p>
-    <h2>a. Conceptos basicos.</h2>
+    <h1>3.1. Conceptos basicos.</h1>
     <p>Los siguientes conceptos serán utilizados en el manual y se daran por entendios.</p>
     <p>
       <ul>
-        <li><b>Administrador</b>: Usuario que tiene control total o parcial de la configuracion general del sistema y sus usuarios.</li>
+        <li><b>Usuario Administrador</b>: Usuario que tiene control total o parcial de la configuracion general del sistema y sus usuarios.</li>
         <li><b>Módulo</b>: Añadido o extension del sistema. Generalmente incluye nuevas funciones para ser utilizadas por los programadores o usuarios.</li>
         <li><b>Post</b>: Publicación de contenido generalmente realizada por administradores del sitio para ser mostrada a los usuarios.</li>
         <li><b>Tema</b>: Plantilla que define el estilo en que se muestra la pagina principal que ven los usuarios. Esto incluye colores, textos, entre otras cosas.</li>
         <li>Panel de Aministración o "<b>Dashboard</b>": es el sitio en donde los administradores pueden modificar la configuracion general del sitio, gestionar sus usarios, publicaciones y temas, entre otras cosas.</li>
       </ul>
     </p>
-    <h2>b. Ingresando al Dashboard.</h2>
+    <h1>3.2. El Dashboard</h1>
     <p>
-      Para ingresar al panel de administracion primero deberemos contar con una cuenta de administrador. Por defecto el usuario y la contraseña es "<b>admin</b>". Luego en nuestro navegador ingresamos a la direccion "/login" precedido de la de nuestro sitio. Por ejemplo: "<b>www.misitio.com/login</b>".
-    </p>
-      <img src="imgs/img01.png" alt="Vista del Login" />
-    <p>
-      Lo primero que veremos al ingresar es algo similar a esto:
+      El dashboard es la pagina donde los usuarios administradores tienen acceso y control sobre la informacion del sistema y sus usuarios. Pueden agregar, modificar o eliminar datos en el sitio.</br>
+      Tambien pueden personalizar la pagina principal instalando nuevos temas o complementos.
     </p>
     <img src="imgs/img02.png" alt="Captura de pantalla de la vista principal del dashboard" />
-    <h2>c. Componentes del Dashboard.</h2>
+    <p>
+      <span class="note">Una de las vistas del dashboard</span>
+    </p>
+    <h2>a. Ingresando al Dashboard</h2>
+    <p>
+      Para ingresar al panel de administracion deberemos contar con una cuenta de administrador. Por defecto el usuario y la contraseña son "<b>admin</b>". Luego en nuestro navegador ingresamos a la direccion "<b>/login</b>" precedido de la de nuestro sitio. Por ejemplo: "<b>www.misitio.com/login</b>".
+    </p>
+      <img src="imgs/img01.png" alt="Vista del Login" />    
+    <h2>b. Componentes del Dashboard</h2>
     <p>
       El dashboard esta dividido en tres partes principales. La vista central (1), la barra superior (2) y el menú principal (3).
     </p>
@@ -128,14 +141,21 @@ RewriteRule ^(.*)$ index.php?route=$1 [QSA,NC,L] </code></pre>
 
     </p>
     <p>
-      <b>2. </b>En la <b>barra superior</b> se puede apreciar el <b>nombre del usuario</b> que ingreso al dashboard y el <b>logotipo del sitio</b> que puede ser modificado en cualquier momento desde la pagina de configuraciones(insertar link a configs).
+      <b>2. </b>En la <b>barra superior</b> se puede apreciar el <b>nombre del usuario</b> que ingreso al dashboard y el <b>logotipo del sitio</b> que puede ser modificado en cualquier momento desde la <a href="#">pagina de configuraciones</a>.
     </p>
       <img src="imgs/img04.png" alt="Barra superior" />
     <p>
       <b>3. </b>El <b>menú principal</b> contiene una lista de opciones para ver o modificar informacion referida a los usuarios y al sitio web en general y tambien una pequeña lista de "<b>atajos</b>" para cerrar sesion o dirigirse a la pagina principal del sistema de forma mas rapida.
     </p>
       <img src="imgs/img05.png" alt="Menu principal" />
-    <h2>d. Creando posts(publicaciones).</h2>
+    <h1>3.3. Las Publicaciones.</h1>
+    <p>
+      Una de las maneras de mantener actualizado un sitio es hacer publicaciones regularmente, Generalmente estas publicaciones se muestran en la pagina principal para ser leidas por los usuarios.
+    </p>
+    <p>
+      Estas publicaciones pueden ser realizadas por cualquier usuario <b>Adminsitrador</b> desde el dashboard.
+    </p>
+    <h2>a. Creando posts(publicaciones)</h2>
     <p>
       Una vez hayamos ingresado al dashboard, debemos dirigirnos al <b>menu principal</b>. En el submenú de <b>Posts</b>, se encuentran opciones para crear y modificar, de manera sencilla, publicaciones en general en el sitio.</br>
       Bastará con ingresar a la seccion "<b>Agregar post</b>", para ingresar a la pagina correspondiente.
@@ -146,7 +166,7 @@ RewriteRule ^(.*)$ index.php?route=$1 [QSA,NC,L] </code></pre>
     </p>
       <img src="imgs/img07.png" alt="Pagina de agregar post" />
     <p>
-      Como puede observarse en la imagen, existen diferentes entradas las cuales servirán para guardar la publicación deseada en el sistema, para ser mostrada a los usuarios.
+      Existen diferentes entradas de texto e imagen que servirán para capturar la informacion y guardarla en una nueva publicación, para ser mostrada a los usuarios.
     </p>
     <p>
       <ul>
@@ -157,7 +177,7 @@ RewriteRule ^(.*)$ index.php?route=$1 [QSA,NC,L] </code></pre>
         <li>Y finalmente, el botón "<b>Guardar</b>" (5) sirve para finalizar la publicación y ser mostrada a los usuarios.</li>
       </ul>
     </p>
-    <h2>e. Modificar y elminiar posts.</h2>
+    <h2>b. Modificar y elminiar posts</h2>
     <p>
       Para modificar o eliminar una publicacion creada anteriormente, se debe ingresar al listado de publicaciones en el submenú "<b>Listado</b>" del menú "<b>Post</b>".
     </p>
@@ -180,11 +200,34 @@ RewriteRule ^(.*)$ index.php?route=$1 [QSA,NC,L] </code></pre>
     </p>
     <img src="imgs/img12.png" alt="Edicion de posts"/>
     <p>
-      El proceso para editar la publicación es practicamente el mismo que para <a href="#"></a>agregar un nuevo post</a>. Simplemente se deben <b>completar los campos</b> con los datos deseados y presionar el <b>botón guardar</b>.
+      El proceso para editar la publicación es practicamente el mismo que para <a href="#">agregar un nuevo post</a>. Simplemente se deben <b>completar los campos</b> con los datos deseados y presionar el <b>botón guardar</b>.
     </p>
     <p>
       <span class="note">NOTA: Una vez modificada la publicación NO sera posible revertir los cambios realizados.</span>
     </p>
+    <h1>3.4. Cuentas de Usuarios.</h1>
+    <p>
+      Todos los usuarios registrados en el sitio poseen un nombre de usuario, una contraseña y otros datos que determinan sus privilegios sobre el sistema y otros usuarios.
+    </p>
+    <p>
+      Los usuarios "<b>Administrador</b>" cuentan con control total sobre la configuracion y pueden acceder al dashboard para modificar toda la informacion del sitio.
+    </p>
+    <p>
+      El resto de los usuarios, los <b>usuarios normales</b>, no pueden acceder al dashboard, pero pueden acceder a privilegios especiales para usuarios registrados en el el sitio, que serían inaccesibles sin una cuenta de usuario.
+    </p>
+    <p>
+      Desde el <b>dashboard</b> los administradores pueden gestionar todas las cuentas de usuarios en el sitio. Pueden, desde modificar la informacion de los usuarios, hasta eliminar o crear nuevas cuentas de administrador.
+    </p>
+    <h2>a. Crear nuevo usuario</h2>
+    <p>
+      Para crear una nueva cuenta de usuario podemos acceder directamente a la pagina de registro del sistema ("<b>/reg</b>") si mantenemos el registro abierto para cualquier usuario.
+    </p>
+    <img src="imgs/img13.png" alt="Pagina de registro"/>
+    <p>
+      En caso de no permitir el registro a todos los usuarios o tener la necesidad de crear un nueva cuenta de administrador, deberemos ingresar al dashboard, seleccionar el menu "<b>Usuarios</b>" e inmediatamente seremos redirigidos a la pagina de gestion de usuarios.
+    </p>
+    <img src="imgs/img14.png" alt="Menú Usuarios"/>
+  
   </body>
     <script src="jquery.js"></script>
   <script>
