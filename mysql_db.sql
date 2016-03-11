@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Base de datos: `sapesys`
+-- Base de datos: `oxigen`
 --
 
 -- --------------------------------------------------------
@@ -160,13 +160,13 @@ INSERT INTO `secadm` (`id`, `titulo`, `archivo`, `padre`) VALUES
 (3, 'Listado', 'posts.php', 0),
 (4, 'Agregar Post', 'addpost.php', 0),
 (5, 'Usuarios', 'users.php', 1),
-(6, 'Paginas', NULL, 1),
+(6, 'Páginas', NULL, 1),
 (7, 'Listado', 'pages.php', 0),
-(8, 'Agregar Pagina', 'addpage.php', 0),
+(8, 'Agregar Página', 'addpage.php', 0),
 (9, 'Temas', NULL, 1),
 (10, 'Cambiar Tema', 'temas.php', 0),
 (11, 'Config. del Tema', 'temacfg.php', 0),
-(12, 'Configuracion', 'cfg.php', 1);
+(12, 'Configuración', 'cfg.php', 1);
 
 -- --------------------------------------------------------
 
