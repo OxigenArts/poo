@@ -96,14 +96,14 @@
 			}
 			if($value['padre'] == "1"){
 				if(empty($value['archivo'])){
-					echo'<li class="padre '.$activo.'"><i class="fa fa-circle-o"></i>'.$value['titulo'].'</li>';
+					echo'<li class="padre '.$activo.' "><i class="fa fa-square-o"></i>'.$value['titulo'].'</li>';
 				}
 				else{
-					echo'<a href="'.$conf->getCfg("url").'admin/'.$value['id'].'"><li class="padre '.$activo.'"><i class="fa fa-circle-o"></i>'.$value['titulo'].'</li></a>';
+					echo'<a href="'.$conf->getCfg("url").'admin/'.$value['id'].'"><li class="padre shadow '.$activo.'"><i class="fa fa-circle-o"></i>'.$value['titulo'].'</li></a>';
 				}
 			}
 			else{
-				echo'<a href="'.$conf->getCfg("url").'admin/'.$value['id'].'"><li class="'.$activo.'"><i class="fa fa-chevron-right"></i>'.$value['titulo'].'</li></a>';
+				echo'<a href="'.$conf->getCfg("url").'admin/'.$value['id'].'"><li class="shadow '.$activo.'"><i class="fa fa-chevron-right"></i>'.$value['titulo'].'</li></a>';
 			}
 		}
 		?>

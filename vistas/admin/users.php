@@ -107,8 +107,8 @@ else if(isset($_POST['editsave'])){
 else if(isset($_POST['nuevo'])){
 	$user = new Usuario();
 	$imagen = new Imagen();
-	echo'<h1>Editar usuario</h1>
-	<p>Rellene el formulario para editar la informacion del usuario.</p>
+	echo'<h1>Nuevo usuario</h1>
+	<p>Rellene el formulario para crear un nuevo usuario.</p>
 	<p>Los campos marcados con <span class="red">*</span> son obligatorios</p>
 	<section id="lista">
 	<article>

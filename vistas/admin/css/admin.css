@@ -232,9 +232,14 @@ header ul li img{
 #menu li i{
 	margin:auto 8px;
 }
+#menu li.active{
+	box-shadow: inset 3px 0px #3c8dbc;
+}
 #menu li.active,#menu li:hover{
 	background-color: #1e282c;
 	color: #fff;
+}
+#menu li.shadow:hover{
 	box-shadow: inset 3px 0px #3c8dbc;
 }
 #menu a:link,#menu a:visited{
