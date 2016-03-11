@@ -29,10 +29,12 @@
       font-style: italic;
     }
     img{
+      border-radius: 4px;
       padding:5px;
       border:1px solid #acb0b5;
     }
     p img{
+      vertical-align: middle;
       padding:0;
       border: 0;
     }
@@ -62,7 +64,7 @@ Las vistas mostradas pueden obtener información anteriormente almacenada en una
     <p>
       Ya teniendo estas dos clases de uso general, las demás clases pueden funcionar correctamente e integrarse de manera que puedan funcionar en conjunto.
     </p>
-    <h1>2. Instalando el sistema. (manualmente)</h1>
+    <h1>2. Instalación  del sistema. (manualmente)</h1>
     <p>
       Para instalar el sistema deberemos disponer básicamente de un servidor con soporte de PHP y Mysql.
     </p>
@@ -269,13 +271,36 @@ RewriteRule ^(.*)$ index.php?route=$1 [QSA,NC,L] </code></pre>
     </p>
     <img src="imgs/img18.png" alt="Ejemplo de una página"/>
     <p>
-      <span class="note">Ejemplo de una página en el tema "Oxigen" donde "Página de muestra" es un enlace a una página.</span>
+      <span class="note">Ejemplo de una página en el tema "Oxigen" donde "<b>Página de muestra</b>" es un enlace a una página.</span>
     </p>
     <h2>a. Crear una página</h2>
     <p>
-      Para crear una nueva página ingresamos al menu "Agregar Página".
+      Para crear una nueva página ingresamos al menu "<b>Agregar Página</b>".
     </p>
-    <img src="imgs/img18.png" alt="Menú agregar página"/>
+    <img src="imgs/img19.png" alt="Menú agregar página"/>
+    <p>
+      Una vez en la sección de creación de páginas rellenamos los campos con los datos deseados y guardamos.
+    </p>
+    <img src="imgs/img20.png" alt="Sección de creación de páginas"/> 
+    <h2>a. Modificar y eliminar páginas</h2>
+    <p>
+      Para ver la lista de páginas publicadas en el sistema nos dirigimos al submenú "<b>listado</b>" en el menú "<b>Páginas</b>"
+    </p>
+    <img src="imgs/img21.png" alt="menu listado de páginas"/> 
+    <p>
+      Una vez que haya ingresado a la sección verá una pagina similar a la siguiente.
+    </p>
+    <img src="imgs/img22.png" alt="Sección de páginas"/> 
+    <p>
+      El funcionamiento es muy simple y muy similar al resto de las opciones del dashboard. Para Eliminar una pagina simplemente debemos presionar el boton "<b>Eliminar</b>".<img src="imgs/img23.png" alt="Eliminar"/>
+    </p>
+    <p>
+      Para modificar una publicación pulsamos el boton "<b>Editar</b>".<img src="imgs/img24.png" alt="Editar"/>
+    </p>
+    <p>
+      En la pagina de edición completamos se deben <b>completar los campos</b> y puslar en el boton "<b>Guardar</b>".
+    </p>
+    <img src="imgs/img25.png" alt="Edición de páginas"/> 
   </body>
     <script src="jquery.js"></script>
   <script>
