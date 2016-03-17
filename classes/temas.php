@@ -14,7 +14,7 @@ class Tema extends Database {
 	public function __construct() {
 		$this->table = "temas";
 		$this->tablecfg = "cfgtemas";
-		$create1 = parent::Create($this->table,"id INT UNSIGNED AUTO_INCREMENT,titulo VARCHAR(128),descripcion VARCHAR(128),autor VARCHAR(128),fecha DATE,carpeta VARCHAR(64),PRIMARY KEY(id)");
+		$create1 = parent::Create($this->table,"id INT UNSIGNED AUTO_INCREMENT,titulo VARCHAR(128),descripcion VARCHAR(128),autor VARCHAR(128),fecha DATE,carpeta VARCHAR(64),PRIMARY KEY(id),UNIQUE KEY `carpeta` (`carpeta`)");
 		$create2 = parent::Create($this->tablecfg,"id INT UNSIGNED AUTO_INCREMENT,tema_id VARCHAR(128),cfg_name VARCHAR(128),cfg_value LONGTEXT,PRIMARY KEY(id)");
 		if($create1 != true || $create2 != true){
 			return false;
@@ -81,7 +81,7 @@ class Tema extends Database {
 	}
 	public function setAutor($autor){
 		$this->autor = $autor;
-	}	
+	}
 	public function getFecha(){
 		if($this->fecha != null){
 			return $this->fecha;
@@ -92,7 +92,7 @@ class Tema extends Database {
 	}
 	public function setFecha($fecha){
 		$this->fecha = $fecha;
-	}	
+	}
 	public function getCarpeta(){
 		if($this->carpeta != null){
 			return ($this->carpeta);
@@ -103,7 +103,7 @@ class Tema extends Database {
 	}
 	public function setCarpeta($carpeta){
 		$this->carpeta = $carpeta;
-	}	
+	}
 	public function getCfg($cfg_name){
 		require_once 'classes/config.php';
 		$conf = new Config();
@@ -122,39 +122,72 @@ class Tema extends Database {
 	public function Update(){
 		if($this->id != null){
 			return parent::Update($this->table,array("titulo" =>$this->titulo,"descripcion" =>$this->descripcion,"autor" =>$this->autor,"fecha" =>$this->fecha,"carpeta" =>$this->carpeta),"id",$this->id);
-		}	
+		}
 		else{
 			return false;
 		}
 	}
 	public function Delete(){
 		if($this->id != null){
-			if(parent::Delete($this->table,"id",$this->id)){
+			if(parent::Delete($this->table,"id",$this->id) && parent::Delete($this->tablecfg,"tema_id",$this->id)){
 				if(!empty($this->carpeta)){
-					$ruta = "vistas/temas/".$this->carpeta; 
+					$ruta = "vistas/temas/".$this->carpeta;
 					if(file_exists($ruta)){
 						require_once('classes/archivos.php');
 						if(Archivos::eliminarDir($ruta)){
-							return true;
+								return true;
 						}
 						else{
-							return false; 
+							return false;
 						}
 					}
 					else{
-						return false; 
+						return false;
 					}
 				}
 				else{
-					return false; 
+					return false;
 				}
 			}
 			else{
-				return false; 
+				return false;
 			}
-		} 
+		}
 		else {
 			return flase;
+		}
+	}
+	public function Instalar($file){
+		require_once 'classes/archivos.php';
+		Archivos::descomprimir($file,"temp/");
+		$configs = Archivos::csvArray("temp/config.csv");
+		$carpeta = $configs["tema_carpeta"];
+		if(!file_exists("vistas/temas/$carpeta")){
+			try{
+				Archivos::moverDir("temp/","vistas/temas/$carpeta");
+				$this->setTitulo($configs['tema_titulo']);
+				$this->setAutor($configs['tema_autor']);
+				$this->setDescripcion($configs['tema_descripcion']);
+				$this->setFecha($configs['tema_fecha']);
+				$this->setCarpeta($carpeta);
+				$this->Save();
+				$tema_id = parent::Select("id",$this->table,"carpeta",$carpeta)[0];
+				unset($configs['tema_titulo']);
+				unset($configs['tema_autor']);
+				unset($configs['tema_descripcion']);
+				unset($configs['tema_fecha']);
+				unset($configs['tema_carpeta']);
+				foreach ($configs as $key => $value) {
+					parent::Insert($this->tablecfg,array("tema_id" => $tema_id,"cfg_name" => $key,"cfg_value" => $value));
+				}
+				return true;
+			}
+			catch(Exception $e){
+				return false;
+			}
+		}
+		else{
+			return false;
 		}
 	}
 }

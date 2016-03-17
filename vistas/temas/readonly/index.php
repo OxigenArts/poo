@@ -10,11 +10,11 @@
 			<!-- Main -->
 				<div id="main">
 					<!-- One -->
-					<?php include('one.php'); ?>	
+					<?php include('one.php'); ?>
 					<!-- Three -->
-					<?php include('three.php'); ?>	
+					<?php include('three.php'); ?>
 					<!-- Four -->
-					<?php include('four.php'); ?>	
+					<?php include('four.php'); ?>
 			<!-- Footer -->
 				<section id="footer">
 					<div class="container">
@@ -23,7 +23,7 @@
 						</ul>
 					</div>
 				</section>
-			
+
 		</div>
 	</body>
 </html>
